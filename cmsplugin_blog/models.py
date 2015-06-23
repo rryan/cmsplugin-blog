@@ -12,6 +12,7 @@ from cms.utils.urlutils import urljoin
 from cms.models import CMSPlugin, Title
 
 import tagging
+from tagging import registry
 from tagging.fields import TagField
 
 from simple_translation.actions import SimpleTranslationPlaceholderActions
@@ -87,7 +88,7 @@ class Entry(models.Model):
         verbose_name_plural = _('entries')
         ordering = ('-pub_date', )
 
-tagging.register(Entry, tag_descriptor_attr='entry_tags')
+registry.register(Entry, tag_descriptor_attr='entry_tags')
 
 class AbstractEntryTitle(models.Model):
     
